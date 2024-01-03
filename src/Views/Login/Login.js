@@ -6,14 +6,12 @@ import Mercedes_Logo_Main from "../../Images/mercedes_logo.png";
 export default function login() {
   return (
     <section className="login--section">
-      <div>
-        <img src={Mercedes_Logo} alt="mercedes logo" />
-      </div>
       <div className="login--form--container">
         <section className="login--form">
           <figure>
             <img src={Mercedes_Logo_Main} alt="mercedes logo"></img>
           </figure>
+          <h1>Sign In</h1>
           <form>
             <label for="email">Email Address</label>
             <br />
@@ -22,10 +20,11 @@ export default function login() {
             <label for="password">Password</label>
             <br />
             <input
-              type="email"
+              type="password"
               name="password"
-              placeholder="Your Email Address"
+              placeholder="Password"
             />
+            <button>Sign In</button>
           </form>
         </section>
       </div>

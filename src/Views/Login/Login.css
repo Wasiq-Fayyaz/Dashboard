@@ -1,30 +1,28 @@
 .login--section {
   display: flex;
-  background-color: black;
-}
-
-.pic--container{
-  object-fit: contain;
+  background: url("../../Images/mercedes_bg_3.jpg") no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .login--form--container {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 150px;
 }
 
 .login--form {
   display: flex;
   flex-direction: column;
   width: 400px;
+  max-width: 400px;
   height: 500px;
-  border: 1px solid #B6BBC4;
+  border: 1px solid white;
   border-radius: 15px;
   padding: 20px;
-  backdrop-filter: blur(50px);
-  background-image: url('../../Images//bg_texture.jpg');
-
+  backdrop-filter: blur(10px) brightness(1);
+  box-shadow: 0px 5px 20px black;
 }
 
 .login--form figure {
@@ -33,36 +31,87 @@
 }
 
 .login--form figure img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
+  animation-name: logo;
+  animation-duration: 5s;
+}
+
+.login--form h1 {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  color: white;
+  font-size: 2em;
+  font-weight: 300;
+  border-bottom: 1px solid white;
 }
 
 .login--form form {
-  margin-top: 50px;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .login--form label {
-  color: #FBF9F1;
+  color: whitesmoke;
   font-size: 1.1em;
-  font-weight: lighter;
 }
 
 .login--form input {
-    width: 100%;
-    height: 25px;
-    border: 2px solid #FBF9F1;
-    border-radius: 3px;
-    padding: 3px;
-    text-indent: 7px;
-    margin-top: 3px;
-    margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0px 5px 5px black;
+  width: 100%;
+  box-sizing: border-box;
+  height: 35px;
+  border: 1px solid #fbf9f1;
+  border-radius: 5px;
+  padding: 3px;
+  text-indent: 7px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  box-shadow: 0px 5px 40px black;
+  background-color: transparent;
+  color: white;
+
 }
 
-.login--form input:focus{
-    outline: none;
+.login--form input:focus {
+  outline: none;
 }
+
+.login--form input::placeholder{
+  color: #F0EEED;
+  opacity: 0.8;
+}
+
+.login--form button {
+  width: 100%;
+  height: 35px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0px 5px 40px #2B2730;
+  margin-top: 20px;
+  transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s, font-weight ease-in-out 0.3s;
+}
+
+.login--form button:hover{
+ background-color: white;
+ color: black;
+}
+
+@keyframes logo{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
