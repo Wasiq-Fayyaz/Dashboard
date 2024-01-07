@@ -1,14 +1,10 @@
-import "./Login.css";
+import "../Login/Login.css";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Mercedes_Logo_Main from "../../Images/mercedes_logo.png";
 
-export default function Login() {
-
-  // const {register, handleSubmit, watch, formState:{error}, setValue} = useForm();
-
-
-  let [userAuth, setUserAuth] = useState({
+export default function Signup() {
+  let [userInput, setUserInput] = useState({
+    fullname: "",
     emailaddress: "",
     password: "",
   });
@@ -16,14 +12,15 @@ export default function Login() {
   const handleChange = (e) => {
     e.preventDefault();
     let { name, value } = e.target;
-    setUserAuth({ ...userAuth, [name]: value });
+    setUserInput({ ...userInput, [name]: value });
   };
 
-  const handleSubmitt = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    userAuth.emailaddress === "wasiqfayaz7@gmail.com" &&
-    userAuth.password === "Wasiq_123"
-      ? window.location.href='/pages/dashboard'
+    userInput.fullname === "Wasiq Fayyaz" &&
+    userInput.emailaddress === "wasiqfayaz7@gmail.com" &&
+    userInput.password === "Wasiq_123"
+      ? alert("SignUp Successful!")
       : alert("SignUp Failed!");
   };
 
@@ -34,16 +31,25 @@ export default function Login() {
           <figure>
             <img src={Mercedes_Logo_Main} alt="mercedes logo"></img>
           </figure>
-          <h1>Sign In</h1>
-          <form onSubmit={handleSubmitt}>
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlfor="email">Full Name</label>
+            <br />
+            <input
+              type="text"
+              name="fullname"
+              placeholder="Your Full Name"
+              value={userInput.fullname}
+              onChange={handleChange}
+            />
             <label htmlFor="email">Email Address</label>
             <br />
             <input
               type="email"
               name="emailaddress"
               placeholder="Your Email Address"
+              value={userInput.emailaddress}
               onChange={handleChange}
-              value={userAuth.emailaddress}
             />
             <br />
             <label htmlFor="password">Password</label>
@@ -52,13 +58,13 @@ export default function Login() {
               type="password"
               name="password"
               placeholder="Password"
+              value={userInput.password}
               onChange={handleChange}
-              value={userAuth.password}
             />
-            <button>Sign In</button>
+            <button>Sign Up</button>
           </form>
           <span>
-            Not Registered? <a href="/signup">Let's Signup</a>
+            Already Registered? <a href="/">Let's Sign In</a>
           </span>
         </section>
       </div>
