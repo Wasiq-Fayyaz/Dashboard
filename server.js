@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 const cors = require("cors")
 const mongoose = require("mongoose")
-const mongoUrl = "mongodb+srv://Wasiq:Dashboard_123@cluster101.65u6cti.mongodb.net/?retryWrites=true&w=majority"
+const mongoUrl = "mongodb+srv://JohnDoe:Johnny@cluster999.77u7cti.mongodb.net/?retryWrites=true&w=majority"
 app.use(cors())
 app.listen(5000, () => {
   console.log("Server listening....");
