@@ -17,12 +17,44 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    userInput.fullname === "Wasiq Fayyaz" &&
-    userInput.emailaddress === "wasiqfayaz7@gmail.com" &&
-    userInput.password === "Wasiq_123"
-      ? alert("SignUp Successful!")
-      : alert("SignUp Failed!");
+    const {fullname, emailaddress, password} = userInput;
+    
+    fetch("http://localhost:5000/register",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Accept:"application/json",
+      },
+      body: JSON.stringify({
+        fullname,
+        emailaddress,
+        password
+      }),
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data,"userRegister"))
+    .catch((error) => console.log(error))
   };
+
+  const regUser = (e) => {
+    e.preventDefault();
+    const {fullname, emailaddress, password} = userInput;
+    fetch("https://localhost:8080/register", {
+      method:"POST",
+      headers:{
+        'Content-Type':"application/json",
+        Accept:"application/json"
+      },
+      body : JSON.stringify({
+        fullname,
+        emailaddress,
+        password
+      })
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .then((error) => console.log(error))
+  }
 
   return (
     <section className="login--section">
@@ -33,7 +65,7 @@ export default function Signup() {
           </figure>
           <h1>Sign Up</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlfor="email">Full Name</label>
+            <label htmlFor="email">Full Name</label>
             <br />
             <input
               type="text"

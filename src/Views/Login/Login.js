@@ -1,12 +1,8 @@
 import "./Login.css";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Mercedes_Logo_Main from "../../Images/mercedes_logo.png";
 
 export default function Login() {
-
-  // const {register, handleSubmit, watch, formState:{error}, setValue} = useForm();
-
 
   let [userAuth, setUserAuth] = useState({
     emailaddress: "",
@@ -21,10 +17,27 @@ export default function Login() {
 
   const handleSubmitt = (e) => {
     e.preventDefault();
-    userAuth.emailaddress === "wasiqfayaz7@gmail.com" &&
-    userAuth.password === "Wasiq_123"
-      ? window.location.href='/pages/dashboard'
-      : alert("SignUp Failed!");
+    const {emailaddress, password} = userAuth;
+    fetch("http://localhost:5000/login",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        Accept:"application/json"
+      },
+      body: JSON.stringify({
+        emailaddress,
+        password
+      }) 
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "userRegister")
+      if(data.status === "OK"){
+        window.localStorage.setItem("token",data.data)
+        window.location.href ="/pages/dashboard"
+      }
+    })
+    .then((err) => console.log(err))
   };
 
   return (
