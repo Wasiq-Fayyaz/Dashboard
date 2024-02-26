@@ -40,6 +40,11 @@ export default function Login() {
     .then((err) => console.log(err))
   };
 
+  const handleWithoutAuth = (e) => {
+    e.preventDefault();
+    window.location.href = "/pages/dashboard"
+  }
+
   return (
     <section className="login--section">
       <div className="login--form--container">
@@ -48,7 +53,7 @@ export default function Login() {
             <img src={Mercedes_Logo_Main} alt="mercedes logo"></img>
           </figure>
           <h1>Sign In</h1>
-          <form onSubmit={handleSubmitt}>
+          <form onSubmit={handleWithoutAuth}>
             <label htmlFor="email">Email Address</label>
             <br />
             <input

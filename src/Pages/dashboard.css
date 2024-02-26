@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    padding: 25px;
+}
+
+.header span{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.header span p{
+    font-weight: 200;
+    font-size: 1em;
+}
+.dashboard--navigation{
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    height: 100vh;
+    width: 20%;
+}
+
+.dashboard--navigation a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    font-weight: 200;
+    background-color: none;
+    transition: color ease-in-out 0.4s,background-color ease-in-out 0.4s;
+}
+
+.dashboard--navigation a:hover{
+    color: black;
+    background-color: white;
+}
